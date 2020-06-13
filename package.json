@@ -11,17 +11,14 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "marked": "^1.1.0",
     "react": "^16.8.3",
     "react-dom": ">= 16.8.0",
-    "react-is": ">= 16.8.0",
-    "react-redux": "^7.2.0",
-    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.12.4"
   }
 }
