@@ -2,9 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-// Refer to Wes's Clock tutorial:
-// https://courses.wesbos.com/account/access/584fcb88d26b631f4f4e6981/view/194130581
-
 const Clock = styled.main`
   margin: 100px auto 0 auto;
   max-width: 700px;
