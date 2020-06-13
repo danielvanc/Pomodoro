@@ -7,7 +7,8 @@
     "last 1 Chrome versions"
   ],
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "dependencies": {
     "marked": "^1.1.0",
