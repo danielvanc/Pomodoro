@@ -1,6 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Clock = styled.main`
   margin: 100px auto 0 auto;
@@ -49,20 +48,30 @@ const StartStop = styled.div`
 const ButtonStart = styled.button``;
 const ButtonReset = styled.button``;
 
-const App = () => {
+const IndexPage = () => {
   const sessionHourStarting = 25;
   const breakHoursStarting = 5;
-  const sessionSecsStarting = "00";
-  const breakSecsStarting = "00";
+  const sessionSecsStarting = '00';
+  const breakSecsStarting = '00';
   const [inProgress, setInProgress] = React.useState(true);
-  const [timerStatus, setTimerStatus] = React.useState(false);
-  const [breakLength, setBreakLength] = React.useState(breakHoursStarting);
-  const [seshLength, setSeshLength] = React.useState(sessionHourStarting);
+  const [timerStatus, setTimerStatus] = React.useState(
+    false
+  );
+  const [breakLength, setBreakLength] = React.useState(
+    breakHoursStarting
+  );
+  const [seshLength, setSeshLength] = React.useState(
+    sessionHourStarting
+  );
   const [timeLeft, setTimeLeft] = React.useState(
-    `${seshLength <= 9 ? "0" : ""}${seshLength}:${sessionSecsStarting}`
+    `${
+      seshLength <= 9 ? '0' : ''
+    }${seshLength}:${sessionSecsStarting}`
   );
   const [breakTimeLeft, setBreakTimeLeft] = React.useState(
-    `${breakLength <= 9 ? "0" : ""}${breakLength}:${breakSecsStarting}`
+    `${
+      breakLength <= 9 ? '0' : ''
+    }${breakLength}:${breakSecsStarting}`
   );
 
   const audioToPlay = React.useRef(null);
@@ -82,10 +91,13 @@ const App = () => {
   function getTimeInSeconds(timeRemaining) {
     const currentTime = timeRemaining;
 
-    const loc = currentTime.indexOf(":");
+    const loc = currentTime.indexOf(':');
     if (loc) {
       const mins = parseInt(currentTime.substring(0, loc));
-      const seconds = currentTime.substring(loc + 1, currentTime.length);
+      const seconds = currentTime.substring(
+        loc + 1,
+        currentTime.length
+      );
 
       return Math.round(mins * 60) + parseInt(seconds);
     }
@@ -99,7 +111,9 @@ const App = () => {
     if (timerStatus === true) {
       displayTimeLeft(seconds);
       countdown = setInterval(() => {
-        secondsLeft = Math.round((then - Date.now()) / 1000);
+        secondsLeft = Math.round(
+          (then - Date.now()) / 1000
+        );
         if (secondsLeft === 0) {
           audioToPlay.current.pause();
           audioToPlay.current.currentTime = 1;
@@ -111,14 +125,14 @@ const App = () => {
             // Time for a break
             setBreakTimeLeft(
               `${
-                breakLength <= 9 ? "0" : ""
+                breakLength <= 9 ? '0' : ''
               }${breakLength}:${breakSecsStarting}`
             );
             setInProgress(false);
           } else {
             setTimeLeft(
               `${
-                seshLength <= 9 ? "0" : ""
+                seshLength <= 9 ? '0' : ''
               }${seshLength}:${sessionSecsStarting}`
             );
             setInProgress(true);
@@ -136,27 +150,29 @@ const App = () => {
     let setTime;
     let remainderSeconds = seconds % 60;
 
-    setTime = `${minutes < 10 ? "0" : ""}${minutes}:${
-      remainderSeconds < 10 ? "0" : ""
+    setTime = `${minutes < 10 ? '0' : ''}${minutes}:${
+      remainderSeconds < 10 ? '0' : ''
     }${remainderSeconds}`;
 
-    inProgress ? setTimeLeft(setTime) : setBreakTimeLeft(setTime);
+    inProgress
+      ? setTimeLeft(setTime)
+      : setBreakTimeLeft(setTime);
   }
 
-  const handleBreakDecrement = (e) => {
+  const handleBreakDecrement = e => {
     e.preventDefault();
     handleBreakChange(0);
   };
-  const handleBreakIncrement = (e) => {
+  const handleBreakIncrement = e => {
     e.preventDefault();
     handleBreakChange(1);
   };
 
-  const handleSessionDecrement = (e) => {
+  const handleSessionDecrement = e => {
     e.preventDefault();
     handleTimeChange(0);
   };
-  const handleSessionIncrement = (e) => {
+  const handleSessionIncrement = e => {
     e.preventDefault();
     handleTimeChange(1);
   };
@@ -166,7 +182,9 @@ const App = () => {
     let currLength = seshLength;
 
     let currentHour = parseInt(currentTime.substring(0, 2));
-    let currentSeconds = parseInt(currentTime.substring(3, currentTime.length));
+    let currentSeconds = parseInt(
+      currentTime.substring(3, currentTime.length)
+    );
     let newTime = currentTime;
 
     if (change === 1 && currLength < 60) {
@@ -175,10 +193,10 @@ const App = () => {
       newTime =
         currentHour + 1 <= 9
           ? `0${(currentHour += 1)}:${
-              currentSeconds <= 9 ? "0" : ""
+              currentSeconds <= 9 ? '0' : ''
             }${currentSeconds}`
           : `${(currentHour += 1)}:${
-              currentSeconds <= 9 ? "0" : ""
+              currentSeconds <= 9 ? '0' : ''
             }${currentSeconds}`;
     } else if (change === 0 && currLength > 1) {
       currLength > 1 ? (currLength -= 1) : currLength;
@@ -188,10 +206,10 @@ const App = () => {
         newTime =
           currentHour - 1 <= 9
             ? `0${(currentHour -= 1)}:${
-                currentSeconds <= 9 ? "0" : ""
+                currentSeconds <= 9 ? '0' : ''
               }${currentSeconds}`
             : `${(currentHour -= 1)}:${
-                currentSeconds <= 9 ? "0" : ""
+                currentSeconds <= 9 ? '0' : ''
               }${currentSeconds}`;
       }
     }
@@ -204,7 +222,9 @@ const App = () => {
     let currentTime = breakTimeLeft;
     let currLength = breakLength;
     let currentHour = parseInt(currentTime.substring(0, 2));
-    let currentSeconds = parseInt(currentTime.substring(3, currentTime.length));
+    let currentSeconds = parseInt(
+      currentTime.substring(3, currentTime.length)
+    );
     let newTime = currentTime;
 
     if (change === 1 && currLength < 60) {
@@ -213,10 +233,10 @@ const App = () => {
       newTime =
         currentHour + 1 <= 9
           ? `0${(currentHour += 1)}:${
-              currentSeconds <= 9 ? "0" : ""
+              currentSeconds <= 9 ? '0' : ''
             }${currentSeconds}`
           : `${(currentHour += 1)}:${
-              currentSeconds <= 9 ? "0" : ""
+              currentSeconds <= 9 ? '0' : ''
             }${currentSeconds}`;
     } else if (change === 0 && currLength > 1) {
       currLength > 1 ? (currLength -= 1) : currLength;
@@ -226,10 +246,10 @@ const App = () => {
         newTime =
           currentHour - 1 <= 9
             ? `0${(currentHour -= 1)}:${
-                currentSeconds <= 9 ? "0" : ""
+                currentSeconds <= 9 ? '0' : ''
               }${currentSeconds}`
             : `${(currentHour -= 1)}:${
-                currentSeconds <= 9 ? "0" : ""
+                currentSeconds <= 9 ? '0' : ''
               }${currentSeconds}`;
       }
     }
@@ -238,11 +258,13 @@ const App = () => {
     setBreakTimeLeft(newTime);
   }
 
-  const handleResetTimer = (e) => {
+  const handleResetTimer = e => {
     setBreakLength(5);
     setSeshLength(25);
     setBreakTimeLeft(
-      `${breakLength <= 9 ? "0" : ""}${breakLength}:${breakSecsStarting}`
+      `${
+        breakLength <= 9 ? '0' : ''
+      }${breakLength}:${breakSecsStarting}`
     );
     setTimeLeft(`25:00`);
     setInProgress(true);
@@ -251,28 +273,47 @@ const App = () => {
     audioToPlay.current.currentTime = 0;
   };
 
-  const handleStartClock = (e) => {
+  const handleStartClock = e => {
     e.preventDefault();
     setTimerStatus(!timerStatus);
   };
+
+  const AudioElement = React.forwardRef((props, ref) => {
+    return (
+      <audio ref={ref} id="beep">
+        <source src="https://res.cloudinary.com/danielvanc/video/upload/v1592073663/alarm.mp3" />
+      </audio>
+    );
+  });
+
   return (
     <Clock>
       <h1>Pomodoro Clock</h1>
 
       <ClockLengths>
         <BreakLength>
-          <BreakLabel id="break-label">Break Length</BreakLabel>
+          <BreakLabel id="break-label">
+            Break Length
+          </BreakLabel>
           <p id="break-length">{breakLength}</p>
-          <BreakDecrement id="break-decrement" onClick={handleBreakDecrement}>
+          <BreakDecrement
+            id="break-decrement"
+            onClick={handleBreakDecrement}
+          >
             Break Decrement
           </BreakDecrement>
-          <BreakIncrement id="break-increment" onClick={handleBreakIncrement}>
+          <BreakIncrement
+            id="break-increment"
+            onClick={handleBreakIncrement}
+          >
             Increment
           </BreakIncrement>
         </BreakLength>
 
         <SessionLength>
-          <SessionLabel id="session-label">Session Length</SessionLabel>
+          <SessionLabel id="session-label">
+            Session Length
+          </SessionLabel>
           <p id="session-length">{seshLength}</p>
           <SessionDecrement
             id="session-decrement"
@@ -291,14 +332,19 @@ const App = () => {
 
       <ClockTimer>
         <TimerLabel id="timer-label">
-          {inProgress ? "Session" : "Break has begun"}
+          {inProgress ? 'Session' : 'Break has begun'}
         </TimerLabel>
-        <p id="time-left">{inProgress ? timeLeft : breakTimeLeft}</p>
+        <p id="time-left">
+          {inProgress ? timeLeft : breakTimeLeft}
+        </p>
       </ClockTimer>
 
       <StartStop>
-        <ButtonStart id="start_stop" onClick={handleStartClock}>
-          {timerStatus ? "Stop" : "Start"}
+        <ButtonStart
+          id="start_stop"
+          onClick={handleStartClock}
+        >
+          {timerStatus ? 'Stop' : 'Start'}
         </ButtonStart>
         <ButtonReset id="reset" onClick={handleResetTimer}>
           Reset
@@ -309,12 +355,4 @@ const App = () => {
   );
 };
 
-const AudioElement = React.forwardRef((props, ref) => {
-  return (
-    <audio ref={ref} id="beep">
-      <source src="https://res.cloudinary.com/danielvanc/video/upload/v1592073663/alarm.mp3" />
-    </audio>
-  );
-});
-
-ReactDOM.render(<App />, document.getElementById("root"));
+export default IndexPage;
