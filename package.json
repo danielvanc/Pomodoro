@@ -34,8 +34,11 @@
     }
   },
   "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "gatsby": "^2.20.24",
     "gatsby-cli": "^2.11.10",
+    "gatsby-plugin-emotion": "^4.3.10",
     "gatsby-plugin-manifest": "^2.3.5",
     "gatsby-plugin-offline": "^3.1.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
@@ -70,6 +73,6 @@
     "npm-run-all": "^4.1.5",
     "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.11.0",
-    "styled-components": "^5.1.1"
+    "tailwindcss": "^1.7.6"
   }
 }

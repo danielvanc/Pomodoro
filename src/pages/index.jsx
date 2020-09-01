@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const Clock = styled.main`
   margin: 100px auto 0 auto;
