@@ -86,6 +86,7 @@ const IndexPage = () => {
     return () => {
       clearInterval(countdown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timerStatus, timeLeft, inProgress, breakLength]);
 
   function getTimeInSeconds(timeRemaining) {
@@ -188,7 +189,8 @@ const IndexPage = () => {
     let newTime = currentTime;
 
     if (change === 1 && currLength < 60) {
-      currLength < 60 ? (currLength += 1) : currLength;
+      currLength =
+        currLength < 60 ? (currLength += 1) : currLength;
 
       newTime =
         currentHour + 1 <= 9
@@ -199,7 +201,8 @@ const IndexPage = () => {
               currentSeconds <= 9 ? '0' : ''
             }${currentSeconds}`;
     } else if (change === 0 && currLength > 1) {
-      currLength > 1 ? (currLength -= 1) : currLength;
+      currLength =
+        currLength > 1 ? (currLength -= 1) : currLength;
 
       // make sure we don't get into minus hour
       if (currentHour - 1 > -1) {
@@ -228,7 +231,8 @@ const IndexPage = () => {
     let newTime = currentTime;
 
     if (change === 1 && currLength < 60) {
-      currLength < 60 ? (currLength += 1) : currLength;
+      currLength =
+        currLength < 60 ? (currLength += 1) : currLength;
 
       newTime =
         currentHour + 1 <= 9
@@ -239,7 +243,8 @@ const IndexPage = () => {
               currentSeconds <= 9 ? '0' : ''
             }${currentSeconds}`;
     } else if (change === 0 && currLength > 1) {
-      currLength > 1 ? (currLength -= 1) : currLength;
+      currLength =
+        currLength > 1 ? (currLength -= 1) : currLength;
 
       // make sure we don't get into minus hour
       if (currentHour - 1 > -1) {
@@ -280,6 +285,7 @@ const IndexPage = () => {
 
   const AudioElement = React.forwardRef((props, ref) => {
     return (
+      // eslint-disable-next-line jsx-a11y/media-has-caption
       <audio ref={ref} id="beep">
         <source src="https://res.cloudinary.com/danielvanc/video/upload/v1592073663/alarm.mp3" />
       </audio>
