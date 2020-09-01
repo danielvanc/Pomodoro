@@ -1,5 +1,5 @@
 {
-  "name": "Pomodoro",
+  "name": "pomodoro",
   "version": "1.0.0",
   "description": "Default project starter using ReactJS and GatsbyJS",
   "main": "index.js",
@@ -31,6 +31,15 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && yarn prettier:check && yarn jest"
+    }
+  },
+  "babelMacros": {
+    "twin": {
+      "config": "tailwind.config.js",
+      "preset": "emotion",
+      "debugProp": true,
+      "debugPlugins": false,
+      "debug": false
     }
   },
   "dependencies": {
