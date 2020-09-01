@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import tw, { styled } from 'twin.macro';
 
 const Clock = styled.main`
   margin: 100px auto 0 auto;
@@ -8,6 +8,7 @@ const Clock = styled.main`
 `;
 
 const NormalButton = styled.button`
+  ${tw`bg-blue-900 hover:bg-blue-800 text-white p-2 rounded`};
   cursor: pointer;
 `;
 
