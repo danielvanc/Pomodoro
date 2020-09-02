@@ -8,10 +8,14 @@ module.exports = {
       resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
       options: {
         analyzerMode: `${
-          process.env.GATSBY_CLOUD ? 'static' : 'server'
+          process.env.VERCEL_GITLAB_DEPLOYMENT
+            ? 'static'
+            : 'server'
         }`,
         openAnalyzer: `${
-          process.env.GATSBY_CLOUD ? false : true
+          process.env.VERCEL_GITLAB_DEPLOYMENT
+            ? false
+            : true
         }`,
       },
     },
