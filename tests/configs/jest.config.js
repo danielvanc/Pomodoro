@@ -2,7 +2,8 @@ module.exports = {
   rootDir: '../../',
   testMatch: ['**/tests/unit/?(*.)+(spec|test).[jt]s?(x)'],
   transform: {
-    '^.+\\.jsx?$': `<rootDir>/tests/configs/jest-preprocess.js`,
+    '^.+\\.js$': 'babel-jest',
+    '^.+\\.jsx$': 'babel-jest',
   },
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
@@ -15,7 +16,6 @@ module.exports = {
     `<rootDir>.*/public`,
     `tests/e2e/integrations`,
   ],
-  transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
     __PATH_PREFIX__: ``,
   },

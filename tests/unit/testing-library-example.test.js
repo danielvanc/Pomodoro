@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 // You have to write data-testid
 
 const Title = () => (
-  <h1 data-testid="hero-title">Gatsby is awesome!</h1>
+  <h1 data-testid="hero-title">NextJS is awesome!</h1>
 );
 
 test('Displays the correct title', () => {
@@ -14,7 +14,7 @@ test('Displays the correct title', () => {
   // Assertion
 
   expect(getByTestId('hero-title')).toHaveTextContent(
-    'Gatsby is awesome!'
+    'NextJS is awesome!'
   );
 
   // --> Test will pass
