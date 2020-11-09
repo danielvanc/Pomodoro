@@ -1,8 +1,10 @@
 # 🕰 Pomodoro
-A Pomodoro timer I built (and use) as final project to complete the freeCodeCamp.org 'Frontend Libraries' [certificate](https://www.freecodecamp.org/certification/danielvanc/front-end-libraries).
 
-Very barebones looking at the moment, but will be improved as and when I get the time to work on it. 
+A small timer I built (and use) as final project to complete
+the freeCodeCamp.org 'Frontend Libraries'
+[certificate](https://www.freecodecamp.org/certification/danielvanc/front-end-libraries).
 
-See list of issues on those that will be worked on first.
+I'm currently working on the issue's listed so watch this
+space!
 
-Clone, Fork, use and enjoy 👍🏼
+In the mean time, Clone, Fork, and make your own version! 👍🏼
