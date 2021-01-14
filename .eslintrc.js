@@ -6,9 +6,17 @@ module.exports = {
     `react-app`,
     `plugin:jsx-a11y/recommended`,
     `eslint-config-prettier`,
+    `plugin:@typescript-eslint/recommended`,
   ],
-  plugins: ['jsx-a11y', 'jest', 'cypress'],
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    'jsx-a11y',
+    'jest',
+    'cypress',
+    '@typescript-eslint',
+  ],
   rules: {
+    // '@typescript-eslint/rule-name': 'error',
     'cypress/no-force': 'warn',
     'cypress/no-async-tests': 'error',
     'jsx-a11y/accessible-emoji': `warn`,
