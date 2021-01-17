@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore . --ext .js, .jsx, .ts, .tsx",
-    "prettier": "prettier \"**pages/**/*.+(js|json|jsx)\"",
+    "prettier": "prettier \"**pages/**/*.+(ts|tsx|js|json|jsx)\"",
     "prettier:format": "yarn prettier --write",
     "prettier:check": "yarn prettier --list-different",
     "validate": "npm-run-all --parallel prettier:check lint build",

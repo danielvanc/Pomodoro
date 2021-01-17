@@ -13,10 +13,9 @@ module.exports = {
     'jsx-a11y',
     'jest',
     'cypress',
-    '@typescript-eslint',
+    '@typescript-eslint/',
   ],
   rules: {
-    // '@typescript-eslint/rule-name': 'error',
     'cypress/no-force': 'warn',
     'cypress/no-async-tests': 'error',
     'jsx-a11y/accessible-emoji': `warn`,
