@@ -1,9 +1,13 @@
 const theme = {
   fonts: {
-    body: 'system-ui, sans-serif',
+    body: '"Modak", system-ui, sans-serif',
     heading: '"Avenir Next", sans-serif',
     monospace: 'Menlo, monospace',
   },
+  fontWeights: {
+    body: 400,
+  },
+  fontSizes: [34],
   colors: {
     text: '#000',
     background: '#fff',

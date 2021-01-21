@@ -1,12 +1,17 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { ThemeProvider } from 'theme-ui';
-import theme from '../theme';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 
-export default function HomePage() {
+export default function HomePage(props) {
   return (
-    <ThemeProvider theme={theme}>
-      <p>Hello</p>
-    </ThemeProvider>
+    <p
+      {...props}
+      sx={{
+        fontSize: 0,
+        fontFamily: 'body',
+        fontWeight: 'body',
+      }}
+    >
+      Welcome to the start of Dobbie!
+    </p>
   );
 }
